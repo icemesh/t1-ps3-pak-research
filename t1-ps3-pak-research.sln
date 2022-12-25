@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33027.164
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "t1-ps3-pak-research", "t1-ps3-pak-research\t1-ps3-pak-research.vcxproj", "{EE08F3B5-D6D3-4391-B7E1-031B23307A22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE08F3B5-D6D3-4391-B7E1-031B23307A22}.Debug|x86.ActiveCfg = Debug|Win32
+		{EE08F3B5-D6D3-4391-B7E1-031B23307A22}.Debug|x86.Build.0 = Debug|Win32
+		{EE08F3B5-D6D3-4391-B7E1-031B23307A22}.Release|x86.ActiveCfg = Release|Win32
+		{EE08F3B5-D6D3-4391-B7E1-031B23307A22}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88AB5C21-144A-458E-930E-EED44391B4C2}
+	EndGlobalSection
+EndGlobal
