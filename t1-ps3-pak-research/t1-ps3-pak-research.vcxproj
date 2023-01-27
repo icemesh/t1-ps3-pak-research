@@ -82,6 +82,7 @@
     <ClInclude Include="src\package\package-def.h" />
     <ClInclude Include="src\package\package.h" />
     <ClInclude Include="src\pak-entries\debug-info.h" />
+    <ClInclude Include="src\pak-entries\pmcollection.h" />
     <ClInclude Include="src\pak-entries\spawner-group.h" />
     <ClInclude Include="src\utils\sidbase\sidbase.h" />
     <ClInclude Include="src\utils\stringid.h" />
@@ -90,6 +91,7 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\package\package.cpp" />
+    <ClCompile Include="src\pak-entries\pmcollection.cpp" />
     <ClCompile Include="src\pak-entries\spawner-group.cpp" />
     <ClCompile Include="src\utils\sidbase\sidbase.cpp" />
     <ClCompile Include="src\utils\stringid.cpp" />

@@ -51,6 +51,7 @@ void InitSidbase()
 		if (!pMem)
 		{
 			printf("Failed to allocate 0x%X bytes for sid db\n", fsize);
+			fclose(fh);
 		}
 		else
 		{

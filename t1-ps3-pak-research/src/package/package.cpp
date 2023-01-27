@@ -13,6 +13,7 @@
 #include "../utils/stringid.h"
 #include "../pak-entries/debug-info.h"
 #include "../pak-entries/spawner-group.h"
+#include "../pak-entries/pmcollection.h"
 
 uintptr_t g_packageOffset;
 
@@ -28,6 +29,7 @@ Package::Package(const char* pakName)
 	{
 		fseek(fh, 0x0, SEEK_END);
 		size_t fsize = ftell(fh);
+		m_fileSize = fsize;
 		fseek(fh, 0x0, SEEK_SET);
 		void* pFile = malloc(fsize);
 		if (pFile)
@@ -41,6 +43,7 @@ Package::Package(const char* pakName)
 		else
 		{
 			MsgErr("Failed to allocate file");
+			fclose(fh);
 		}
 	}
 	else
@@ -91,7 +94,8 @@ int Package::PackageLogin()
 #endif
 								pCurrentPage++;
 							}
-							m_textureBaseOffset = m_hdr.m_hdrSize + (m_hdr.m_pageCt << 19); //m_hdr.m_pageCt*LoadingHeap::s_PageSize
+							//m_textureBaseOffset = m_hdr.m_hdrSize + (m_hdr.m_pageCt << 19); //m_hdr.m_pageCt*LoadingHeap::s_PageSize
+							m_textureBaseOffset = m_fileSize - pHdr->m_dataSize;
 							m_status = PackageStatus::kPackageStatusLoadingPages;
 						}
 						else
@@ -368,6 +372,14 @@ bool Login(ResItem * pResItem, ResPage * pResPage, Package * pPackage)
 			EntitySpawnerGroup::DumpInfo(reinterpret_cast<uint8_t*>(pResItem) + 0x20);
 			break;
 		}
+
+		case 0x63AA33DB: //SID("PM_COLLECTION_2")
+		{
+			printf("\x1B[0;32mFound: %s -> 0x%08X\x1B[m\n", reinterpret_cast<const char*>(pResItem->m_itemTypeOffset), typeId);
+			PmCollection::DumpInfo(reinterpret_cast<uint8_t*>(pResItem) + 0x20);
+			break;
+		}
+
 		default:
 		{
 			printf("\x1B[0;31mFound: %s -> 0x%08X\x1B[m\n", reinterpret_cast<const char*>(pResItem->m_itemTypeOffset), typeId);

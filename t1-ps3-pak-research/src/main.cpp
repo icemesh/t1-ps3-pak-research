@@ -21,7 +21,7 @@ int main(int argc, const char* aArgv[])
 		{
 			if (pPackage->PackageLogin())
 			{
-				MsgWarn("Further data processing goes here");
+				MsgWarn("Further data processing goes here\n");
 			}
 			delete pPackage;
 		}
