@@ -299,7 +299,7 @@ bool Login(ResItem * pResItem, ResPage * pResPage, Package * pPackage)
 	switch (typeId)
 	{
 
-		case 0x82F0FADD: //SID("TAG_INT")
+		case SID("TAG_INT"):
 		{
 			printf("\x1B[0;32mFound: %s -> 0x%08X\x1B[m\n", reinterpret_cast<const char*>(pResItem->m_itemTypeOffset), typeId);
 			const char* itemName = (const char*)pResItem->m_itemNameOffset;
@@ -329,7 +329,7 @@ bool Login(ResItem * pResItem, ResPage * pResPage, Package * pPackage)
 			break;
 		}
 
-		case 0xBEE196DF: //SID("TAG_FLOAT")
+		case SID("TAG_FLOAT"):
 		{
 			printf("\x1B[0;32mFound: %s -> 0x%08X\x1B[m\n", reinterpret_cast<const char*>(pResItem->m_itemTypeOffset), typeId);
 			if (strcmp("lod_distance", (const char*)pResItem->m_itemNameOffset) == 0)
@@ -340,13 +340,13 @@ bool Login(ResItem * pResItem, ResPage * pResPage, Package * pPackage)
 			break;
 		}
 
-		case 0xA0C08245: //SID("LEVEL_OFFSET_1")
+		case SID("LEVEL_OFFSET_1"):
 		{
 			printf("\x1B[0;32mFound: %s -> 0x%08X\x1B[m\n", reinterpret_cast<const char*>(pResItem->m_itemTypeOffset), typeId);
 			break;
 		}
 
-		case 0xE621D592: //SID("DEBUG_INFO_1")
+		case SID("DEBUG_INFO_1"):
 		{
 			printf("\x1B[0;32mFound: %s -> 0x%08X\x1B[m\n", reinterpret_cast<const char*>(pResItem->m_itemTypeOffset), typeId);
 			DebugInfo1* pDebugInfo1 = reinterpret_cast<DebugInfo1*>(reinterpret_cast<uint8_t*>(pResItem) + 0x20);
@@ -354,26 +354,26 @@ bool Login(ResItem * pResItem, ResPage * pResPage, Package * pPackage)
 			break;
 		}
 
-		case 0xDD7F3F25: //SID("LEVEL_INFO_1")
+		case SID("LEVEL_INFO_1"):
 		{
 			printf("\x1B[0;32mFound: %s -> 0x%08X\x1B[m\n", reinterpret_cast<const char*>(pResItem->m_itemTypeOffset), typeId);
 			break;
 		}
 	
-		case 0x47CCB7BF: //SID("FEATURE_DB_2")
+		case SID("FEATURE_DB_2"):
 		{
 			printf("\x1B[0;32mFound: %s -> 0x%08X\x1B[m\n", reinterpret_cast<const char*>(pResItem->m_itemTypeOffset), typeId);
 			break;
 		}
 
-		case 0x4B60B220: //SID("SPAWNER_GROUP")
+		case SID("SPAWNER_GROUP"):
 		{
 			printf("\x1B[0;32mFound: %s -> 0x%08X\x1B[m\n", reinterpret_cast<const char*>(pResItem->m_itemTypeOffset), typeId);
 			EntitySpawnerGroup::DumpInfo(reinterpret_cast<uint8_t*>(pResItem) + 0x20);
 			break;
 		}
 
-		case 0x63AA33DB: //SID("PM_COLLECTION_2")
+		case SID("PM_COLLECTION_2"):
 		{
 			printf("\x1B[0;32mFound: %s -> 0x%08X\x1B[m\n", reinterpret_cast<const char*>(pResItem->m_itemTypeOffset), typeId);
 			PmCollection::DumpInfo(reinterpret_cast<uint8_t*>(pResItem) + 0x20);
